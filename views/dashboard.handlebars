@@ -1,0 +1,16 @@
+{{> navbar}}
+
+<main>
+    <h2>Dashboard</h2>
+    <a href="/dashboard/new">Create New Post</a>
+    {{#each posts}}
+    <div class="post">
+        <h3>{{title}}</h3>
+        <p>By: {{user.username}}</p>
+        <p>{{content}}</p>
+        <p>Posted on: {{createdAt}}</p>
+        <a href="/dashboard/edit/{{id}}">Edit</a>
+        <a href="/dashboard/delete/{{id}}">Delete</a>
+    </div>
+    {{/each}}
+</main>
