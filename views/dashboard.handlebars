@@ -10,7 +10,12 @@
         <p>{{content}}</p>
         <p>Posted on: {{createdAt}}</p>
         <a href="/dashboard/edit/{{id}}">Edit</a>
-        <a href="/dashboard/delete/{{id}}">Delete</a>
+        <form class="delete-form" action="/dashboard/delete/{{id}}" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Delete</button>
+        </form>
     </div>
     {{/each}}
 </main>
+
+<script src="/public/delete-post.js"></script>

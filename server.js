@@ -23,7 +23,6 @@ app.use(
   })
 );
 
-
 const hbs = create({
   defaultLayout: 'main',
   runtimeOptions: {
@@ -37,10 +36,15 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/public/delete-post.js', (req, res) => {
+  res.setHeader('Content-Type', 'text/javascript');
+  res.sendFile(path.join(__dirname, 'public', 'delete-post.js'));
+});
 
 const authRoutes = require('./controllers/authController');
 app.use('/auth', authRoutes);

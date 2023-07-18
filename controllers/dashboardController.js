@@ -75,17 +75,25 @@ router.post('/update/:id', async (req, res) => {
   }
 });
 
-
-
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
   try {
-    const deletedPost = await Post.destroy({ where: { id: req.params.id } });
-    res.status(200).json(deletedPost);
+
+    const postId = req.params.id;
+     console.log('Post ID to be deleted:', postId);
+
+    await Post.destroy({
+      where: {
+        id: postId,
+      },
+    });
+
+    res.redirect('/dashboard');
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    console.error('Error deleting post:', err);
+    res.status(500).send('Error deleting post.');
   }
 });
+
 
 
 module.exports = router;
