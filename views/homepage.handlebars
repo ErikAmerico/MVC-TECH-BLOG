@@ -1,13 +1,12 @@
-{{> navbar}}
-
 <main>
     <h2>Welcome to the Tech Blog!</h2>
     {{#if loggedIn}}
     <a href="/dashboard">Go to Dashboard</a>
     <a href="/auth/logout">Logout</a>
     {{else}}
+    <a href="/home">Home</a>
+    <a href="/auth/login">Go to Dashboard</a>
     <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
     {{/if}}
     {{#each posts}}
     <div class="post">

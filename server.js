@@ -11,6 +11,9 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const authRoutes = require('./controllers/authController');
+const dashboardRoutes = require('./controllers/dashboardController');
+
 app.use(
   session({
     secret: 'very secret message that you cannot guess',
@@ -46,10 +49,10 @@ app.get('/public/delete-post.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'delete-post.js'));
 });
 
-const authRoutes = require('./controllers/authController');
+
 app.use('/auth', authRoutes);
 
-const dashboardRoutes = require('./controllers/dashboardController');
+
 app.use('/dashboard', dashboardRoutes);
 
 
@@ -57,7 +60,6 @@ const routes = require('./controllers');
 app.use(routes);
 
 
-// Start the server
 sequelize.sync({ force: false }).then(() => {
 app.listen(PORT, () => 
   console.log(`Server is running on port ${PORT}`))
