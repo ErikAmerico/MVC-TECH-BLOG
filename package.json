@@ -2,7 +2,7 @@
   "name": "mvc-tech-blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-        "bcrypt": "^5.0.0",
-        "connect-session-sequelize": "^7.0.4",
-        "dotenv": "^16.3.1",
-        "express-handlebars": "^7.0.7",
-        "express-session": "^1.17.3",
-        "handlebars": "^4.7.7",
-        "mysql2": "^3.5.1",
-        "sequelize": "^6.32.1"
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^16.3.1",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "method-override": "^3.0.0",
+    "mysql2": "^3.5.1",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.32.1"
   }
 }

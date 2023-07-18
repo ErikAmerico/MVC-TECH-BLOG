@@ -54,6 +54,24 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/edit/:id', async (req, res) => {
+  try {
+    const [updatedRows] = await Post.update(
+      { title: req.body.title, content: req.body.content },
+      { where: { id: req.params.id, user_id: req.session.userId } }
+    );
+    if (updatedRows > 0) {
+      res.redirect('/dashboard');
+    } else {
+      res.status(404).json({ message: 'Post not found or no changes were made' });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
