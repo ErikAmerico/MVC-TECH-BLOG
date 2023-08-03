@@ -1,0 +1,11 @@
+{{> navbar}}
+
+<main>
+    <h2>Single Post</h2>
+    <div class="post">
+        <h3>{{post.title}}</h3>
+        <p>By: {{post.user.name}}</p>
+        <p>{{{post.content}}}</p>
+        <p>Posted on: {{post.createdAt}}</p>
+    </div>
+</main>

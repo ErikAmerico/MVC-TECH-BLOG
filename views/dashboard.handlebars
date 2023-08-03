@@ -2,12 +2,12 @@
 
 <main>
     <h2>Dashboard</h2>
-    <a href="/dashboard/new">Create New Post</a>
+    <a href="/new">Create New Post</a>
     {{#each posts}}
     <div class="post">
         <h3>{{title}}</h3>
         <p>By: {{user.name}}</p>
-        <p>{{content}}</p>
+        <p>{{{content}}}</p>
         <p>Posted on: {{createdAt}}</p>
         <a href="/dashboard/edit/{{id}}">Edit</a>
         <form class="delete-form" action="/dashboard/delete/{{id}}" method="POST">

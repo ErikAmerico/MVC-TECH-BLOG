@@ -75,12 +75,12 @@ router.post('/edit/:id', async (req, res) => {
 router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.redirect('/home');
+      res.redirect('/');
       //res.status(204).end();
     });
     //end();
   } else {
-    res.redirect('/home');
+    res.redirect('/');
     //res.status(404).end();
     //end();
   }

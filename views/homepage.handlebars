@@ -2,17 +2,18 @@
     <h2>Welcome to the Tech Blog!</h2>
     {{#if loggedIn}}
     <a href="/dashboard">Go to Dashboard</a>
-    <a href="/auth/logout">Logout</a>
+    <a href="/logout">Logout</a>
     {{else}}
-    <a href="/home">Home</a>
-    <a href="/auth/login">Go to Dashboard</a>
-    <a href="/auth/login">Login</a>
+    <a href="/">Home</a>
+    <a href="/login">Go to Dashboard</a>
+    <a href="/login">Login</a>
     {{/if}}
     {{#each posts}}
     <div class="post">
         <h3>{{title}}</h3>
         <p>By: {{user.name}}</p>
         <p>Posted on: {{createdAt}}</p>
+        <a href="/post/{{id}}">Read More</a>
     </div>
     {{/each}}
 </main>

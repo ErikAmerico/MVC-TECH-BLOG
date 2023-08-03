@@ -3,7 +3,7 @@ const router = express.Router();
 const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
       const postData = await Post.findAll({ where: { user_id: req.session.userId }, include: User });
       const posts = postData.map((post) => post.get({ plain: true }));
@@ -68,7 +68,7 @@ router.post('/update/:id', async (req, res) => {
       }
     );
 
-    res.redirect('/home');
+    res.redirect('/');
   } catch (err) {
     console.error('Error updating post:', err);
     res.status(500).send('Error updating post.');

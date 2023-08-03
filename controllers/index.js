@@ -5,12 +5,12 @@ const dashboardRoutes = require('./dashboardController')
 const commentRoutes = require('./commentController');
 
 
-router.use('/home', homeRoutes);
+router.use('/', homeRoutes);
 
-router.use('/auth', authRoutes);
+router.use('/', authRoutes);
 
-router.use('/dashboard', dashboardRoutes)
+router.use('/', dashboardRoutes)
 
-router.use('/comments', commentRoutes);
+router.use('/', commentRoutes);
 
 module.exports = router;
