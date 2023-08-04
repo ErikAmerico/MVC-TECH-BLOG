@@ -9,11 +9,12 @@
     <a href="/login">Login</a>
     {{/if}}
     {{#each posts}}
+    <a href="/post/{{id}}" class="post-link">
     <div class="post">
         <h3>{{title}}</h3>
         <p>By: {{user.name}}</p>
         <p>Posted on: {{createdAt}}</p>
-        <a href="/post/{{id}}">Read More</a>
     </div>
+    </a>
     {{/each}}
 </main>
