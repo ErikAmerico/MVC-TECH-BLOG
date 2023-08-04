@@ -3,3 +3,48 @@ a {
     cursor: grab;
     color: inherit;
   }
+
+  .post {
+    border: 3px rgb(113, 16, 16) solid;
+    margin-top: 3px;
+    background-color: rgb(180, 177, 177);
+    border-radius: 10px;
+    width: 40%;
+  }
+
+.navigation {
+  border: 2px rgb(113, 16, 16) solid;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.navigation:hover {
+  color: rgb(113, 16, 16);
+  font-weight: bold;
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-list li {
+  margin: 0 10px;
+}
+
+.navbar-list li:last-child {
+  margin-right: 0;
+}
+
+.navbar-list a {
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar-list a:hover {
+  color: rgb(113, 16, 16);
+  font-weight: bold;
+}

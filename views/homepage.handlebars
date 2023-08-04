@@ -1,12 +1,12 @@
 <main>
     <h2>Welcome to the Tech Blog!</h2>
     {{#if loggedIn}}
-    <a href="/dashboard">Go to Dashboard</a>
-    <a href="/logout">Logout</a>
+    <a href="/dashboard" class="navigation">Dashboard</a>
+    <a href="/logout" class="navigation">Logout</a>
     {{else}}
-    <a href="/">Home</a>
-    <a href="/login">Go to Dashboard</a>
-    <a href="/login">Login</a>
+    <a href="/" class="navigation">Home</a>
+    <a href="/login" class="navigation">Dashboard</a>
+    <a href="/login" class="navigation">Login</a>
     {{/if}}
     {{#each posts}}
     <a href="/post/{{id}}" class="post-link">
