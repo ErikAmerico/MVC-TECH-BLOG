@@ -87,7 +87,7 @@ router.delete('/delete/:id', async (req, res) => {
       },
     });
 
-    res.redirect('/dashboard');
+    res.sendStatus(204);
   } catch (err) {
     console.error('Error deleting post:', err);
     res.status(500).send('Error deleting post.');

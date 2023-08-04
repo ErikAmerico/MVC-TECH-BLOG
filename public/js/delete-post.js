@@ -1,31 +1,22 @@
-function deletePost(event) {
-  event.preventDefault();
+document.querySelectorAll('.deleteBtn').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const postId = button.dataset.id;
+    console.log('postId front end', postId)
 
-  const form = event.target;
-  const url = form.action;
+    try {
+      const response = await fetch(`/delete/${postId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      });
 
-  fetch(`/delete/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+      if (response.ok) {
+        window.location.reload();
+      } else {
+        alert('Failed to delete the post.');
       }
-      location.reload();
-    })
-    .catch((error) => {
-      console.error("Error deleting post:", error);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const deleteForms = document.querySelectorAll(".delete-form");
-  deleteForms.forEach((form) => {
-    form.addEventListener("submit", deletePost);
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred.');
+    }
   });
 });
-
-
