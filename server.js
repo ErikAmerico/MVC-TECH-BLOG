@@ -33,6 +33,15 @@ app.use(session(sess));
 
 const hbs = exphbs.create({});
 
+hbs.handlebars.registerHelper('formatDate', function (date) {
+  return (new Date(date)).toLocaleDateString('en-US', {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+});
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 

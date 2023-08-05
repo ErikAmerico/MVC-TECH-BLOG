@@ -15,7 +15,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-  res.render('new-post');
+  res.render('new-post', { loggedIn: req.session.loggedIn });
 });
 
 router.post('/new', async (req, res) => {

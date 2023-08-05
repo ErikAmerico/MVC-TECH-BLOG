@@ -8,7 +8,7 @@
         <h3>{{title}}</h3>
         <p>By: {{user.name}}</p>
         <p>{{{content}}}</p>
-        <p>Posted on: {{createdAt}}</p>
+        <p>Posted on: {{formatDate createdAt}}</p>
         <button class="editBtn" data-id="{{id}}">Edit Post</button>
         <button class="deleteBtn" data-id="{{id}}">Delete Post</button>
     </div>

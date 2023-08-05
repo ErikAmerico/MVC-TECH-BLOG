@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (response.ok) {
         console.log('Comment added successfully!');
         form.reset();
+        window.location.reload()
       } else {
         alert('Failed to add comment.');
       }

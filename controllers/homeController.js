@@ -16,9 +16,31 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const postId = req.params.id;
-    const postData = await Post.findByPk(postId, { include: User, Comment });
+    const postData = await Post.findByPk(postId, { include: User });
 
-    res.render('single-post', { post: postData.get({ plain: true }), loggedIn: req.session.loggedIn, postId });
+    const commentData = await Comment.findAll({
+      where: { post_id: postId},
+      include: User,
+    });
+
+    console.log(commentData)
+
+    const comments = commentData.map(comment => {
+      return {
+        id: comment.id,
+        content: comment.content,
+        createdAt: comment.createdAt,
+        username: comment.dataValues.user.name,
+      };
+    });
+    console.log('comments!!!!', comments)
+    //res.render('single-post', { post: postData.get({ plain: true }), loggedIn: req.session.loggedIn, comments: commentData, postId });
+    res.render('single-post', {
+      post: postData.get({ plain: true }),
+      loggedIn: req.session.loggedIn,
+      comments,
+      postId
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

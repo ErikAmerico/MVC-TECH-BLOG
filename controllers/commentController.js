@@ -10,7 +10,7 @@ router.post('/comment', withAuth, async (req, res) => {
       user_id: req.session.userId,
       post_id: req.body.post_id,
     });
-    res.status(200).render('partials/comments', newComment);
+    res.render('partials/comments', newComment);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
