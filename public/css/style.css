@@ -6,10 +6,17 @@ a {
 
   .post {
     border: 3px rgb(113, 16, 16) solid;
-    margin-top: 3px;
+    margin-top: 10px;
     background-color: rgb(180, 177, 177);
     border-radius: 10px;
     width: 40%;
+  }
+  
+  .post-login {
+    border: 3px rgb(113, 16, 16) solid;
+    background-color: rgb(180, 177, 177);
+    border-radius: 10px;
+    width: 50%;
   }
 
 .navigation {

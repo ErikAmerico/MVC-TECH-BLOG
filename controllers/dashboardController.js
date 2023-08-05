@@ -39,11 +39,16 @@ router.post('/new', async (req, res) => {
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const post = await Post.findOne({ where: { id: req.params.id } });
-    if (!post) {
+    const postId = req.params.id;
+    const postData = await Post.findOne({
+      where: { id: postId },
+      include: User,
+    });
+    if (!postData) {
       res.status(404).json({ message: 'Post not found' });
       return;
     }
+    const post = postData.get({ plain: true });
     res.render('edit-post', { post });
   } catch (err) {
     console.log(err);
@@ -52,7 +57,8 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 });
 
 
-router.post('/update/:id', async (req, res) => {
+
+router.put('/update/:id', async (req, res) => {
   console.log(req.body)
   try {
     const title = req.body.title;
@@ -68,7 +74,7 @@ router.post('/update/:id', async (req, res) => {
       }
     );
 
-    res.redirect('/');
+    //res.redirect('/dashboard');
   } catch (err) {
     console.error('Error updating post:', err);
     res.status(500).send('Error updating post.');

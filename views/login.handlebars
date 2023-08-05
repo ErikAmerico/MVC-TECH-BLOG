@@ -1,6 +1,9 @@
+<h1><a href="/" class="navigation">Home</a></h1> 
+
 <main>
+    
+    <form action="/login" method="POST" class="post-login">
     <h2>Login</h2>
-    <form action="/login" method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="name" required>
         <label for="password">Password:</label>
@@ -9,9 +12,20 @@
     </form>
 
     <br>
-    <h2>If you do not already have an account, please click button below:</h2>
-    <br>
 
-    <h2><a href="/signup" class="navigation">Signup</a></h2>
+        
+    <form action="/signup" method="POST" class="post-login">
+    <h2>Signup</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Signup</button>
+    </form>
 
 </main>

@@ -20,3 +20,11 @@ document.querySelectorAll('.deleteBtn').forEach((button) => {
     }
   });
 });
+
+document.querySelectorAll('.editBtn').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const postId = button.dataset.id;
+    window.location.href = `/edit/${postId}`;
+    console.log('postId front end', postId);
+});
+});

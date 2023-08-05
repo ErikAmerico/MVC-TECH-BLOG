@@ -2,9 +2,16 @@
 
 <main>
     <h2>Edit Post</h2>
-    <form action="/update/{{post.id}}" method="POST">
-        <!-- Use PUT method for updating the post -->
-        <input type="hidden" name="_method" value="PUT">
+
+        <div class="post">
+        <h3>{{post.title}}</h3>
+        <p>By: {{post.user.name}}</p>
+        <p>{{{post.content}}}</p>
+        <p>Posted on: {{post.createdAt}}</p>
+    </div>
+
+
+    <form id="editPostForm" action="/update/{{post.id}}">
 
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" value="{{post.title}}" required>
@@ -15,3 +22,5 @@
         <button type="submit">Save Changes</button>
     </form>
 </main>
+
+<script src="/js/edit-post.js"></script>
