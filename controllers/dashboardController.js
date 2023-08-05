@@ -49,7 +49,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       return;
     }
     const post = postData.get({ plain: true });
-    res.render('edit-post', { post });
+    res.render('edit-post', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -58,7 +58,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 
 
 
-router.put('/update/:id', async (req, res) => {
+router.put('/update/:id', withAuth, async (req, res) => {
   console.log(req.body)
   try {
     const title = req.body.title;
@@ -74,7 +74,6 @@ router.put('/update/:id', async (req, res) => {
       }
     );
 
-    //res.redirect('/dashboard');
   } catch (err) {
     console.error('Error updating post:', err);
     res.status(500).send('Error updating post.');
