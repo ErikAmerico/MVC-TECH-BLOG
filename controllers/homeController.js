@@ -16,9 +16,9 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const postId = req.params.id;
-    const postData = await Post.findByPk(postId, { include: User });
+    const postData = await Post.findByPk(postId, { include: User, Comment });
 
-    res.render('single-post', { post: postData.get({ plain: true }), loggedIn: req.session.loggedIn });
+    res.render('single-post', { post: postData.get({ plain: true }), loggedIn: req.session.loggedIn, postId });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -9,3 +9,22 @@
         <p>Posted on: {{post.createdAt}}</p>
     </div>
 </main>
+
+{{> comments post.comments }}
+
+{{#if loggedIn}}
+<form class="comment-form">
+    <div>
+        <textarea name="comment-body"></textarea>
+    </div>
+
+    <input type="hidden" name="post_id" value="{{postId}}">
+
+    <div>
+        <button type="submit">add comment</button>
+    </div>
+</form>
+{{/if}}
+
+
+<script src="/js/comment.js"></script>
