@@ -2,12 +2,16 @@
 {{#each comments}}
   <section class="comment">
     <div class="comment-user">
-      {{this.username}} on {{formatDate this.createdAt}}
+      {{this.username}}
     </div>
-    <div class="text">
+    <div class="comment-text">
       {{this.content}}
     </div>
+    <div class="comment-date">
+    {{formatDate this.createdAt}}
+    </div>
   </section>
+  <br>
 {{/each}}
 
 

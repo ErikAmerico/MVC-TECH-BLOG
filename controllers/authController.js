@@ -22,7 +22,6 @@ router.post('/signup', async (req, res) => {
       req.session.userId = userData.id;
       req.session.loggedIn = true;
       res.redirect('/dashboard');
-      //res.status(200).json(userData);
     });
   } catch (err) {
     console.log(err);
@@ -34,18 +33,15 @@ router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
     if (!userData) {
-      res.status(400).json({ message: 'Incorrect username or password. Please try again!' });
-      return;
+      return res.send('<script>alert("Incorrect username or password. Please try again!"); window.history.back();</script>');
     }
     const validPassword = await userData.checkPassword(req.body.password);
     if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect username or password. Please try again!' });
-      return;
+      return res.send('<script>alert("Incorrect username or password. Please try again!"); window.history.back();</script>');
     }
     req.session.save(() => {
       req.session.userId = userData.id;
       req.session.loggedIn = true;
-      //res.status(200).json({ user: userData, message: 'You are now logged in!' });
       res.redirect('/dashboard');
     });
   } catch (err) {
@@ -76,13 +72,9 @@ router.get('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.redirect('/');
-      //res.status(204).end();
     });
-    //end();
   } else {
     res.redirect('/');
-    //res.status(404).end();
-    //end();
   }
 });
 

@@ -23,8 +23,6 @@ router.get('/post/:id', async (req, res) => {
       include: User,
     });
 
-    console.log(commentData)
-
     const comments = commentData.map(comment => {
       return {
         id: comment.id,

@@ -1,5 +1,3 @@
-
-
   async function handleFormSubmit(event) {
     event.preventDefault();
 

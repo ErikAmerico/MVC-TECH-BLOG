@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = event.target;
     const commentBody = form.querySelector('textarea[name="comment-body"]').value;
     const postId = form.querySelector('input[name="post_id"]').value; 
-    console.log(postId)
   
     try {
       const response = await fetch('/comment', {
