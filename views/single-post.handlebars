@@ -11,9 +11,6 @@
     <br>
 </main>
 
-
-{{> comments}}
-
 {{#if loggedIn}}
 <form class="comment-form">
     <div>
@@ -26,7 +23,9 @@
         <button type="submit" class="confirm-buttons">add comment</button>
     </div>
 </form>
+<br>
 {{/if}}
 
+{{> comments}}
 
 <script src="/js/comment.js"></script>
